@@ -76,7 +76,9 @@ def calc_frequency_of_numbers(numbers):
 # format the graph.
 def format_graph(number_frequency):
   graph = ""
+  print(number_frequency)
   for number in number_frequency:
+    print(number)
     # Note the cool use of 'string multiplication' here!
     # 'x' * 3 will give you 'xxx'
     graph += f"{number}: {'x' * number_frequency[number]}\n"
