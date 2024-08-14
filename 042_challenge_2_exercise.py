@@ -32,7 +32,7 @@ def play_game():
     board = [[".", ".", "."], [".", ".", "."], [".", ".", "."]]
     player = "X"
     round = 0
-    while not is_game_over(board, round):
+    while not is_game_over(board) or round == 10:
         print(print_board(board))
         print("It's " + player + "'s turn.")
         # `input` asks the user to type in a string
@@ -106,15 +106,7 @@ groups_to_check = [
 ]
 
 
-def is_board_full(board):
-    for row in board:
-        if "." in row:
-            return False
-        else:
-            return True
-
-
-def is_game_over(board, round):
+def is_game_over(board):
     # We go through our groups
     for group in groups_to_check:
         # If any of them are empty, they're clearly not a
@@ -123,8 +115,6 @@ def is_game_over(board, round):
             if are_all_cells_the_same(board, group[0], group[1], group[2]):
                 return True  # We found a winning row!
                 # Note that return also stops the function
-    if round == 10:
-        return is_board_full(board)
     return False
 
 
